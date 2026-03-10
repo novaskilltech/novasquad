@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Squad | L'Ingénierie SaaS d'Élite par IA</title>
+    <meta name="description"
+        content="Propulsez votre SaaS avec la Nova Squad. Une équipe virtuelle d'experts en ingénierie logicielle, sécurité et conformité.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#3B82F6',
+                        cta: '#F97316',
+                        dark: '#0A0A0B',
+                        'dark-card': '#161618',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow': 'glow 4s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%, 100%': { opacity: 0.3, filter: 'blur(20px)' },
+                            '50%': { opacity: 0.6, filter: 'blur(40px)' },
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0A0A0B;
+            color: #F8FAFC;
+        }
+
+        .bento-card {
+            background: rgba(22, 22, 24, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(249, 115, 22, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -20px rgba(249, 115, 22, 0.2);
+        }
+
+        .bento-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(249, 115, 22, 0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .bento-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .glow-accent {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .search-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0B;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1F1F23;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F97316;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            opacity: 0.03;
+            z-index: 9999;
+            pointer-events: none;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="overflow-x-hidden">
+    <div class="noise"></div>
+
+    <!-- Background Accents -->
+    <div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full animate-glow z-0">
+    </div>
+    <div class="fixed bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-cta/5 blur-[120px] rounded-full animate-glow z-0"
+        style="animation-delay: -2s"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-[100] bento-card !rounded-full !bg-black/40 border-white/10 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="p-2 bg-cta/10 rounded-xl">
+                <i data-lucide="zap" class="text-cta fill-cta w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tighter">NOVA SQUAD</span>
+        </div>
+        <div class="hidden md:flex gap-10 font-medium text-white/60">
+            <a href="#vault" class="hover:text-white transition-colors">Les Modes</a>
+            <a href="#expertise" class="hover:text-white transition-colors">Expertise</a>
+            <a href="#communaute" class="hover:text-white transition-colors">Commandes</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="text-white/60 font-medium hover:text-white transition-colors">Login</button>
+            <button
+                class="bg-white text-black px-6 py-2.5 rounded-full font-bold hover:scale-105 transition-all active:scale-95">
+                Join Squad
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32 px-6">
+
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto text-center pt-20 pb-32">
+            <div
+                class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-cta shadow-[0_0_8px_rgba(249,115,22,0.8)]"></span>
+                Accès Alpha: Le Futur du Prompt Engineering
+            </div>
+            <h1 class="reveal text-7xl md:text-8xl font-black tracking-tighter mb-10 leading-[0.9]">
+                DÉPLOYEZ VOTRE <br /> <span
+                    class="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30">SAAS D'ÉLITE.</span>
+            </h1>
+            <p class="reveal text-xl text-white/40 max-w-2xl mx-auto mb-16 leading-relaxed">
+                Nova Squad est votre équipe d'ingénierie virtuelle. Nous transformons vos idées complexes en produits
+                SaaS sécurisés, conformes et performants.
+            </p>
+
+            <!-- Centered Pursuit Search -->
+            <div class="reveal max-w-3xl mx-auto relative group">
+                <div
+                    class="search-container flex items-center p-3 rounded-2xl gap-3 focus-within:ring-2 focus-within:ring-cta/50 transition-all">
+                    <div class="flex-1 flex items-center px-4 gap-4">
+                        <i data-lucide="search" class="text-white/20 w-6 h-6"></i>
+                        <input type="text"
+                            placeholder="Entrez votre concept SaaS ou commandez la Squad... (ex: /KICKOFF)"
+                            class="bg-transparent border-none w-full focus:ring-0 text-xl font-medium placeholder:text-white/10 text-white">
+                    </div>
+                    <button
+                        class="bg-cta text-white px-8 py-5 rounded-xl font-black text-lg shadow-[0_15px_30px_-10px_rgba(249,115,22,0.4)] hover:shadow-cta/60 transition-all hover:scale-[1.02]">
+                        ACCÉDER
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="reveal mt-12 flex justify-center gap-6 text-[11px] font-black uppercase tracking-widest text-white/20">
+                <span class="text-cta/40">Commandes :</span>
+                <a href="#" class="hover:text-white transition-colors cursor-pointer">/KICKOFF</a>
+                <a href="#" class="hover:text-white transition-colors cursor-pointer">/BUILD</a>
+                <a href="#" class="hover:text-white transition-colors cursor-pointer">/RELEASE</a>
+            </div>
+        </section>
+
+        <!-- Bento Grid Section -->
+        <section id="vault" class="max-w-7xl mx-auto pb-40">
+            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-none md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+
+                <!-- Large Feature Tile -->
+                <div class="reveal md:col-span-2 md:row-span-2 bento-card p-10 flex flex-col justify-end group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200"
+                        alt="Futuristic AI"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 z-0">
+                    <div class="relative z-20">
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cta text-white text-[10px] font-bold rounded-lg uppercase">Exclusif</span>
+                            <span
+                                class="px-3 py-1 bg-white/10 backdrop-blur text-white text-[10px] font-bold rounded-lg uppercase">Tech</span>
+                        </div>
+                        <h3 class="text-4xl font-black mb-4 tracking-tighter uppercase">MODE BUILD FROM CDC</h3>
+                        <p class="text-white/60 text-lg max-w-md">Transformez votre Cahier des Charges en produit fini.
+                            Analyse, Dispatch et Build sécurisé.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Tile: Categories -->
+                <div class="reveal bento-card p-8 group overflow-visible">
+                    <div class="flex justify-between items-start mb-10">
+                        <div
+                            class="p-3 bg-primary/10 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <i data-lucide="arrow-up-right"
+                            class="text-white/20 w-5 h-5 group-hover:text-cta transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-black tracking-tight mb-2 uppercase">/SEC & /RGPD</h4>
+                    <p class="text-white/40 text-sm">Le Privacy-by-design au cœur de chaque ligne de code générée.</p>
+                </div>
+
+                <!-- Bento Tile: Copy -->
+                <div class="reveal bento-card p-8 group">
+                    <div class="flex justify-between items-start mb-10">
+                        <div
+                            class="p-3 bg-cta/10 rounded-2xl text-cta group-hover:bg-cta group-hover:text-white transition-colors">
+                            <i data-lucide="copy" class="w-6 h-6"></i>
+                        </div>
+                        <i data-lucide="arrow-up-right"
+                            class="text-white/20 w-5 h-5 group-hover:text-cta transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-black tracking-tight mb-2 uppercase">/PAY SYSTEM</h4>
+                    <p class="text-white/40 text-sm">Checkout, Webhooks et Abonnements planifiés avec précision.</p>
+                </div>
+
+                <!-- Small Horizontal Tile -->
+                <div class="reveal md:col-span-2 bento-card p-8 flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <div class="w-16 h-16 rounded-full border-2 border-white/5 overflow-hidden flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=200"
+                                alt="Avatar" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold tracking-tight">/DoR : DEFINITION OF READY</h4>
+                            <p class="text-white/40 text-xs mt-1">On ne code rien sans une validation formelle des
+                                specs.</p>
+                        </div>
+                    </div>
+                    <button class="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
+                        <i data-lucide="plus" class="text-white w-5 h-5"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section
+            class="max-w-7xl mx-auto py-20 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div class="reveal">
+                <div class="text-5xl font-black text-white mb-2">100%</div>
+                <div class="text-white/30 text-[10px] uppercase font-bold tracking-widest">Privacy-by-design</div>
+            </div>
+            <div class="reveal">
+                <div class="text-5xl font-black text-cta mb-2">Zero</div>
+                <div class="text-white/30 text-[10px] uppercase font-bold tracking-widest">Scope Creep</div>
+            </div>
+            <div class="reveal">
+                <div class="text-5xl font-black text-white mb-2">SaaS</div>
+                <div class="text-white/30 text-[10px] uppercase font-bold tracking-widest">Spécialisé</div>
+            </div>
+            <div class="reveal">
+                <div class="text-5xl font-black text-primary mb-2">Elite</div>
+                <div class="text-white/30 text-[10px] uppercase font-bold tracking-widest">Engineering Squad</div>
+            </div>
+        </section>
+
+        <!-- Commands Section -->
+        <section id="communaute" class="max-w-7xl mx-auto py-32">
+            <div class="reveal text-center mb-20">
+                <h2 class="text-5xl font-black mb-6 tracking-tight">COMMANDES DE CONTRÔLE</h2>
+                <p class="text-white/40 text-lg">Pilotez votre équipe virtuelle avec précision chirurgicale.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal bento-card p-8 border-cta/10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <code class="text-cta font-black text-xl">/KICKOFF</code>
+                        <span class="text-white/10 text-xs uppercase font-bold tracking-widest">Initialisation</span>
+                    </div>
+                    <p class="text-white/40 text-sm">Démarre le projet via un questionnaire ciblé pour définir le MVP
+                        idéal.</p>
+                </div>
+
+                <div class="reveal bento-card p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <code class="text-cta font-black text-xl">/GENIUS</code>
+                        <span class="text-white/10 text-xs uppercase font-bold tracking-widest">Revue Critique</span>
+                    </div>
+                    <p class="text-white/40 text-sm">Identifie les angles morts et les risques cachés avant la phase de
+                        build.</p>
+                </div>
+
+                <div class="reveal bento-card p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <code class="text-cta font-black text-xl">/RELEASE</code>
+                        <span class="text-white/10 text-xs uppercase font-bold tracking-widest">Production</span>
+                    </div>
+                    <p class="text-white/40 text-sm">Checklist finale : monitoring, rollback et mise en production
+                        sécurisée.</p>
+                </div>
+            </div>
+
+            <div
+                class="reveal mt-20 p-10 bento-card border-primary/20 bg-primary/5 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div>
+                    <h4 class="text-2xl font-black mb-2 uppercase tracking-tight italic">Mode Comité</h4>
+                    <p class="text-white/40 text-sm">Mobilisez toute l'escouade (Lead, Tech, UX, Legal) pour une vision
+                        à 360°.</p>
+                </div>
+                <button class="bg-primary text-white px-10 py-4 rounded-xl font-black hover:scale-105 transition-all">
+                    ACTIVER L'ESCOUADE
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-4">
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="zap" class="text-cta fill-cta w-6 h-6 animate-pulse"></i>
+                    <span class="font-bold text-2xl tracking-tighter italic">NOVA SQUAD</span>
+                </div>
+                <p class="text-white/30 text-sm leading-relaxed max-w-xs">
+                    L'orchestrateur virtuel d'élite pour le développement de SaaS sécurisés et conformes. Propriété de
+                    la Nova Squad.
+                </p>
+            </div>
+            <div class="md:col-span-8 flex flex-wrap gap-20 justify-end">
+                <div class="space-y-4">
+                    <h5 class="text-white text-xs font-black uppercase tracking-widest">Resources</h5>
+                    <ul class="text-white/40 text-sm space-y-2">
+                        <li><a href="#" class="hover:text-cta transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-cta transition-colors">API Alpha</a></li>
+                        <li><a href="#" class="hover:text-cta transition-colors">Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-white text-xs font-black uppercase tracking-widest">Squad</h5>
+                    <ul class="text-white/40 text-sm space-y-2">
+                        <li><a href="#" class="hover:text-cta transition-colors">Twitter (X)</a></li>
+                        <li><a href="#" class="hover:text-cta transition-colors">Discord</a></li>
+                        <li><a href="#" class="hover:text-cta transition-colors">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-20 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-[10px] text-white/10 uppercase font-bold tracking-widest italic">
+                SQUAD PROTOCOL v8.2 // SECURE CONNECTION ESTABLISHED
+            </p>
+            <p class="text-[11px] text-white/20">
+                © 2026 NOVA SQUAD PROMPTS. NO RIGHTS RESERVED. CODE IS FREEDOM.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Reveal on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
