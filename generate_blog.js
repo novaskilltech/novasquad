@@ -407,7 +407,7 @@ const blogIndexHtml = `
         </div>
     </main>
     <footer class="py-12 border-t border-white/5 text-center text-white/20 text-xs font-bold uppercase tracking-widest">
-        © 2026 Novaskill Tech. No Rights Reserved. Code is freedom.
+        © 2026 Novaskill Tech
     </footer>
     <script>lucide.createIcons();</script>
 </body>
@@ -488,3 +488,4 @@ const genericArticleHtmlTemplate = `
 fs.writeFileSync('blog_lancement-nova-squad-ia-multi-agents-saas.html', genericArticleHtmlTemplate);
 
 console.log('Blog and 16 persona articles generated successfully!');
+
