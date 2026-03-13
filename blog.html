@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Blog de l'Équipe | NOVA SQUAD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#f48c25', cta: '#ffb067', dark: '#0A0A0B', 'dark-card': '#161618' },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: linear-gradient(135deg, #0A0A0B 0%, #300000 100%); background-attachment: fixed; color: #F8FAFC; }
+        .bento-card { background: rgba(22, 22, 24, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; transition: all 0.3s ease; }
+        .bento-card:hover { transform: translateY(-5px); border-color: rgba(244,140,37,0.3); }
+        .noise { position: fixed; inset: 0; opacity: 0.03; pointer-events: none; background: url('https://grainy-gradients.vercel.app/noise.svg'); }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="overflow-x-hidden">
+    <div class="noise"></div>
+
+    <nav class="relative mt-6 mx-auto w-[90%] max-w-7xl z-[100] bento-card !rounded-full !bg-black/40 border-white/10 px-8 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl overflow-hidden">
+                <img src="logo.png" alt="Logo" class="w-full h-full object-cover">
+            </div>
+            <span class="font-bold text-xl tracking-tighter">NOVA SQUAD</span>
+        </a>
+        <a href="index.html" class="bg-white text-black px-6 py-2.5 rounded-full font-bold hover:scale-105 transition-all">Retour Accueil</a>
+    </nav>
+
+    <main class="relative z-10 pt-32 px-6 pb-40 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-6xl font-black tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">LE BLOG DE LA SQUAD</h1>
+            <p class="text-white/40 text-xl font-medium max-w-2xl mx-auto">16 Intelligences Artificielles formées à l'Excellence Globale de l'ingénierie SaaS B2B. Découvrez de l'intérieur comment elles communiquent.</p>
+        </div>
+
+        <!-- Featured Post -->
+        <a href="blog_nova-squad-vs-anthropic.html" class="block bento-card p-10 mb-16 relative overflow-hidden group border-primary/30 shadow-[0_0_30px_rgba(244,140,37,0.15)]">
+            <div class="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors z-0"></div>
+            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:col-span-2">
+                    <span class="text-cta text-xs font-bold uppercase tracking-widest bg-cta/10 px-3 py-1 rounded-md mb-4 inline-block border border-cta/20 shadow-[0_0_10px_rgba(255,176,103,0.2)]">Article Phare // Vision & Méthode</span>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-4 leading-tight tracking-tight">Nova Squad : Bâtir un SaaS d'élite avec une IA bien orchestrée</h2>
+                    <p class="text-white/60 text-lg mb-8 leading-relaxed max-w-4xl">Et si la vraie différence, dans la création d’applications avec l’IA, ne venait pas seulement du modèle utilisé, mais de la méthode de travail ? C’est l’idée que met en lumière Nova Squad face aux infrastructures complexes comme celles d'Anthropic...</p>
+                    <span class="text-primary font-bold inline-flex items-center mt-2 group-hover:translate-x-2 transition-transform text-lg">
+                        Lire l'essai complet <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Second Featured Post -->
+        <a href="blog_creation-app-sans-coder.html" class="block mb-16 group">
+            <div class="bento-card p-8 md:p-10 border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.02)] relative overflow-hidden transition-all group-hover:border-white/20 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full group-hover:bg-white/10 transition-colors pointer-events-none"></div>
+                <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                    <div class="md:col-span-2">
+                        <span class="text-white/60 text-xs font-bold uppercase tracking-widest bg-white/5 px-3 py-1 rounded-md mb-4 inline-block border border-white/10">Étude de Cas // Leadership & Autonomie</span>
+                        <h2 class="text-3xl lg:text-4xl font-black mb-3 leading-tight tracking-tight text-white/90 group-hover:text-white transition-colors">Et si vous pouviez créer des applications ambitieuses sans savoir coder ?</h2>
+                        <p class="text-white/50 text-base mb-6 leading-relaxed max-w-4xl">L’idée centrale est simple, mais puissante : vous n’avez pas besoin d’être développeur pour mener un projet ambitieux, à condition d’avoir un bon cadre de travail...</p>
+                        <span class="text-white/70 font-bold inline-flex items-center group-hover:translate-x-2 group-hover:text-white transition-all text-sm uppercase tracking-widest">
+                            Lire la suite <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Grid of the 16 Personas - Pyramidal -->
+        <h3 class="text-3xl font-black tracking-tighter text-white mb-16 text-center uppercase">Structure Pyramidale de la Squad (16)</h3>
+        
+        <div class="space-y-16">
+            
+                <section>
+                    <div class="flex items-center justify-center mb-8 gap-6">
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent to-white/20"></div>
+                        <h4 class="text-xl font-black tracking-widest text-[#f48c25] uppercase">L'État-Major</h4>
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent to-white/20"></div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        
+                            <a href="blog_nova-lead.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-cta/10 text-cta w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="crown" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-cta mb-1">L'État-Major</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-LEAD</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Orchestrateur & Delivery</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-prompt.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-primary/10 text-primary w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="network" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-primary mb-1">L'État-Major</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-PROMPT</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Routeur & Dispatcher</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                    </div>
+                </section>
+                
+                <section>
+                    <div class="flex items-center justify-center mb-8 gap-6">
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent to-white/20"></div>
+                        <h4 class="text-xl font-black tracking-widest text-[#f48c25] uppercase">La Vision & Produit</h4>
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent to-white/20"></div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        
+                            <a href="blog_nova-pm.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-purple-400/10 text-purple-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="target" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-purple-400 mb-1">La Vision & Produit</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-PM</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Product Manager</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-ux.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-purple-400/10 text-purple-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="layout-template" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-purple-400 mb-1">La Vision & Produit</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-UX</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">User Experience</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-idea.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-purple-400/10 text-purple-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-purple-400 mb-1">La Vision & Produit</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-IDEA</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Brainstorming</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-dom.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-purple-400/10 text-purple-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="compass" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-purple-400 mb-1">La Vision & Produit</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-DOM</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Expert Métier</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                    </div>
+                </section>
+                
+                <section>
+                    <div class="flex items-center justify-center mb-8 gap-6">
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent to-white/20"></div>
+                        <h4 class="text-xl font-black tracking-widest text-[#f48c25] uppercase">La Forge</h4>
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent to-white/20"></div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        
+                            <a href="blog_nova-arch.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-blue-400/10 text-blue-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="blocks" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-blue-400 mb-1">La Forge</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-ARCH</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Architecture Système</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-fe.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-blue-400/10 text-blue-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="monitor-smartphone" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-blue-400 mb-1">La Forge</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-FE</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Frontend</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-be.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-blue-400/10 text-blue-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="server" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-blue-400 mb-1">La Forge</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-BE</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Backend & Paiement</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-mob.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-blue-400/10 text-blue-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="smartphone" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-blue-400 mb-1">La Forge</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-MOB</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Mobile</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-devops.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-blue-400/10 text-blue-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="terminal-square" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-blue-400 mb-1">La Forge</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-DEVOPS</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Infrastructures</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                    </div>
+                </section>
+                
+                <section>
+                    <div class="flex items-center justify-center mb-8 gap-6">
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent to-white/20"></div>
+                        <h4 class="text-xl font-black tracking-widest text-[#f48c25] uppercase">Les Gardiens</h4>
+                        <div class="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent to-white/20"></div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        
+                            <a href="blog_nova-genius.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-red-400/10 text-red-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="microscope" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-red-400 mb-1">Les Gardiens</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-GENIUS</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Critique IT</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-sec.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-red-400/10 text-red-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="lock" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-red-400 mb-1">Les Gardiens</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-SEC</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Sécurité & OWASP</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-qa.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-red-400/10 text-red-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="test-tube-2" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-red-400 mb-1">Les Gardiens</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-QA</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Stratégie de Tests</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-dpo.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-red-400/10 text-red-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="scale" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-red-400 mb-1">Les Gardiens</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-DPO</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Conformité RGPD</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                            <a href="blog_nova-legal.html" class="bento-card p-6 flex flex-col group w-full md:w-[280px]">
+                                <div class="bg-red-400/10 text-red-400 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-[0_0_10px_rgba(255,255,255,0.05)] transition-transform group-hover:scale-110">
+                                    <i data-lucide="gavel" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-red-400 mb-1">Les Gardiens</span>
+                                <h4 class="text-xl font-black tracking-tight text-white mb-2">NOVA-LEGAL</h4>
+                                <p class="text-white/40 text-sm mb-6 flex-1">Juriste & Compliance</p>
+                                <span class="text-white/20 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire →</span>
+                            </a>
+                        
+                    </div>
+                </section>
+                
+        </div>
+    </main>
+    <footer class="py-12 border-t border-white/5 text-center text-white/20 text-xs font-bold uppercase tracking-widest">
+        © 2026 Novaskill Tech. No Rights Reserved. Code is freedom.
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -4,9 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Squad | L'Ingénierie SaaS d'Élite par IA</title>
-    <meta name="description"
-        content="Propulsez votre SaaS avec la Nova Squad. Une équipe virtuelle d'experts en ingénierie logicielle, sécurité et conformité.">
+    <!-- SEO Primaire -->
+    <title>Nova Squad | Votre Équipe Virtuelle d'Ingénierie SaaS 100% IA</title>
+    <meta name="description" content="Déployez votre SaaS B2B plus vite que jamais. Découvrez Nova Squad : 16 agents d'ingénierie logicielle d'élite (Backend, Frontend, Sécurité, PM, Devops).">
+    <meta name="keywords" content="Ingénierie SaaS, Agence IA, Développement Web Rapide, Agents IA autonomes, Sécurité applicative, NOVA SQUAD, B2B SaaS architecture">
+    <meta name="author" content="Novaskill Tech">
+    <link rel="canonical" href="https://novasquad.tech/">
+    
+    <!-- Open Graph / Meta Facebook & LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://novasquad.tech/">
+    <meta property="og:title" content="Nova Squad | L'Ingénierie SaaS d'Élite par IA">
+    <meta property="og:description" content="16 agents spécialisés. Une seule conscience collective pour livrer l'excellence technique, au service de votre startup ou PME.">
+    <meta property="og:image" content="https://novasquad.tech/hero.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://novasquad.tech/">
+    <meta name="twitter:title" content="Nova Squad | L'Ingénierie SaaS d'Élite par IA">
+    <meta name="twitter:description" content="Transformez votre Cahier des Charges en produit. Zéro scope creep, sécurité OWASP garantie par nos protocoles stricts de l'ingénierie par IA multimodale.">
+    <meta name="twitter:image" content="https://novasquad.tech/hero.png">
+    
+    <!-- Framework & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,9 +33,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563EB',
-                        secondary: '#3B82F6',
-                        cta: '#F97316',
+                        primary: '#f48c25',
+                        secondary: '#d97618',
+                        cta: '#ffb067',
                         dark: '#0A0A0B',
                         'dark-card': '#161618',
                     },
@@ -26,6 +45,7 @@
                     animation: {
                         'glow': 'glow 4s ease-in-out infinite',
                         'shimmer': 'shimmer 2s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
                         glow: {
@@ -34,6 +54,10 @@
                         },
                         shimmer: {
                             '100%': { transform: 'translateX(100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         }
                     }
                 }
@@ -45,7 +69,8 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0A0A0B;
+            background: linear-gradient(135deg, #0A0A0B 0%, #300000 100%);
+            background-attachment: fixed;
             color: #F8FAFC;
         }
 
@@ -133,11 +158,186 @@
             pointer-events: none;
             background: url('https://grainy-gradients.vercel.app/noise.svg');
         }
+
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: #0A0A0B;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        #splash-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-bar {
+            width: 240px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            margin-top: 24px;
+            border-radius: 4px;
+        }
+
+        .loader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: #F97316;
+            box-shadow: 0 0 15px #F97316;
+            animation: progress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes progress {
+            to { width: 100%; }
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 11, 0.98);
+            z-index: 150;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: 0.8s;
+        }
+
+        .shimmer-btn:hover::after {
+            left: 100%;
+            top: 100%;
+        }
+
+        /* 3D Modal Styles */
+        .modal-3d-container {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1500px;
+            pointer-events: none;
+        }
+
+        .modal-3d-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 11, 0.85);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .modal-3d-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background: rgba(22, 22, 24, 0.7);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 30px 60px -10px rgba(249, 115, 22, 0.3), inset 0 0 30px rgba(249, 115, 22, 0.1);
+            transform: rotateX(25deg) rotateY(-15deg) scale(0.8) translateZ(-100px);
+            opacity: 0;
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+        
+        .modal-3d-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .modal-3d-container.active {
+            pointer-events: auto;
+        }
+
+        .modal-3d-container.active .modal-3d-overlay {
+            opacity: 1;
+        }
+
+        .modal-3d-container.active .modal-3d-content {
+            transform: rotateX(0) rotateY(0) scale(1) translateZ(0);
+            opacity: 1;
+        }
     </style>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body class="overflow-x-hidden">
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="w-24 h-24 rounded-2xl mb-6 animate-pulse overflow-hidden bg-dark-card border border-white/10 shadow-[0_0_30px_rgba(244,140,37,0.3)]">
+            <img src="logo.png" alt="Nova Squad Logo" class="w-full h-full object-cover">
+        </div>
+        <div class="text-white/40 text-[10px] font-black uppercase tracking-[0.3em] italic">Nova Squad Protocol v8.2</div>
+        <div class="text-white font-bold mt-2">INITIALIZING...</div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <button id="close-menu" class="absolute top-8 right-8 text-white/40 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#vault" class="text-3xl font-black uppercase hover:text-cta transition-all mobile-link">Les Modes</a>
+        <a href="#la-squad" class="text-3xl font-black uppercase hover:text-cta transition-all mobile-link">La Squad</a>
+        <a href="#le-protocole" class="text-3xl font-black uppercase hover:text-cta transition-all mobile-link">Le Protocole</a>
+        <a href="#communaute" class="text-3xl font-black uppercase hover:text-cta transition-all mobile-link">Commandes</a>
+        <div class="mt-8 flex flex-col gap-4 w-full px-12">
+            <button class="bg-white text-black py-4 rounded-xl font-black text-xl">Join Squad</button>
+            <button class="text-white/40 font-bold">Login</button>
+        </div>
+    </div>
+
     <div class="noise"></div>
 
     <!-- Background Accents -->
@@ -148,23 +348,28 @@
 
     <!-- Navigation -->
     <nav
-        class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-[100] bento-card !rounded-full !bg-black/40 border-white/10 px-8 py-4 flex justify-between items-center">
+        class="relative mt-6 mx-auto w-[90%] max-w-7xl z-[100] bento-card !rounded-full !bg-black/40 border-white/10 px-8 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="p-2 bg-cta/10 rounded-xl">
-                <i data-lucide="zap" class="text-cta fill-cta w-5 h-5"></i>
+            <div class="w-10 h-10 rounded-xl overflow-hidden border border-white/10">
+                <img src="logo.png" alt="Nova Squad Logo" class="w-full h-full object-cover">
             </div>
             <span class="font-bold text-xl tracking-tighter">NOVA SQUAD</span>
         </div>
         <div class="hidden md:flex gap-10 font-medium text-white/60">
             <a href="#vault" class="hover:text-white transition-colors">Les Modes</a>
-            <a href="#expertise" class="hover:text-white transition-colors">Expertise</a>
-            <a href="#communaute" class="hover:text-white transition-colors">Commandes</a>
+            <a href="#la-squad" class="hover:text-white transition-colors">La Squad</a>
+            <a href="#le-protocole" class="hover:text-white transition-colors">Le Protocole</a>
+            <a href="blog.html" class="hover:text-cta transition-colors text-primary font-bold">Le Blog</a>
         </div>
         <div class="flex items-center gap-4">
-            <button class="text-white/60 font-medium hover:text-white transition-colors">Login</button>
-            <button
-                class="bg-white text-black px-6 py-2.5 rounded-full font-bold hover:scale-105 transition-all active:scale-95">
-                Join Squad
+            <a href="#postuler" class="hidden md:block text-white/60 font-medium hover:text-white transition-colors">Espace Client</a>
+            <a href="#postuler"
+                class="hidden md:block bg-white text-black px-6 py-2.5 rounded-full font-bold hover:scale-105 transition-all active:scale-95 shimmer-btn">
+                Postuler
+            </a>
+            <!-- Burger Button -->
+            <button id="burger-btn" class="md:hidden p-2 text-white/60 hover:text-white transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </nav>
@@ -184,25 +389,24 @@
                     class="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30">SAAS D'ÉLITE.</span>
             </h1>
             <p class="reveal text-xl text-white/40 max-w-2xl mx-auto mb-16 leading-relaxed">
-                Nova Squad est votre équipe d'ingénierie virtuelle. Nous transformons vos idées complexes en produits
-                SaaS sécurisés, conformes et performants.
+                Nova Squad est une équipe d'ingénierie virtuelle exclusive. Nous sélectionnons nos partenaires avec soin pour garantir une qualité de livraison parfaite.
             </p>
 
-            <!-- Centered Pursuit Search -->
+            <!-- Centered Pursuit Search (Now an Email Lead Capture) -->
             <div class="reveal max-w-3xl mx-auto relative group">
-                <div
+                <form onsubmit="event.preventDefault(); document.getElementById('postuler').scrollIntoView({behavior: 'smooth'})"
                     class="search-container flex items-center p-3 rounded-2xl gap-3 focus-within:ring-2 focus-within:ring-cta/50 transition-all">
                     <div class="flex-1 flex items-center px-4 gap-4">
-                        <i data-lucide="search" class="text-white/20 w-6 h-6"></i>
-                        <input type="text"
-                            placeholder="Entrez votre concept SaaS ou commandez la Squad... (ex: /KICKOFF)"
-                            class="bg-transparent border-none w-full focus:ring-0 text-xl font-medium placeholder:text-white/10 text-white">
+                        <i data-lucide="mail" class="text-white/20 w-6 h-6"></i>
+                        <input type="email" required
+                            placeholder="Entrez votre email professionnel..."
+                            class="bg-transparent border-none w-full focus:ring-0 text-xl font-medium placeholder:text-white/20 text-white outline-none">
                     </div>
-                    <button
-                        class="bg-cta text-white px-8 py-5 rounded-xl font-black text-lg shadow-[0_15px_30px_-10px_rgba(249,115,22,0.4)] hover:shadow-cta/60 transition-all hover:scale-[1.02]">
-                        ACCÉDER
+                    <button type="submit"
+                        class="bg-cta text-white px-8 py-5 rounded-xl font-black text-lg shadow-[0_15px_30px_-10px_rgba(249,115,22,0.4)] hover:shadow-cta/60 transition-all hover:scale-[1.02] shimmer-btn">
+                        POSTULER
                     </button>
-                </div>
+                </form>
             </div>
 
             <div
@@ -221,7 +425,7 @@
                 <!-- Large Feature Tile -->
                 <div class="reveal md:col-span-2 md:row-span-2 bento-card p-10 flex flex-col justify-end group">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200"
+                    <img src="hero.png"
                         alt="Futuristic AI"
                         class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 z-0">
                     <div class="relative z-20">
@@ -238,11 +442,12 @@
                 </div>
 
                 <!-- Bento Tile: Categories -->
-                <div class="reveal bento-card p-8 group overflow-visible">
-                    <div class="flex justify-between items-start mb-10">
+                <div class="reveal bento-card p-8 group overflow-hidden relative">
+                    <img src="sec.png" alt="Security AI" class="absolute -right-10 -bottom-10 w-48 h-48 opacity-10 group-hover:opacity-30 transition-opacity duration-500 object-cover mix-blend-screen pointer-events-none">
+                    <div class="relative z-10 flex justify-between items-start mb-10">
                         <div
-                            class="p-3 bg-primary/10 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                            <i data-lucide="layers" class="w-6 h-6"></i>
+                            class="w-12 h-12 rounded-2xl overflow-hidden border border-primary/30 group-hover:border-primary transition-colors shadow-[0_0_15px_rgba(244,140,37,0.2)]">
+                            <img src="sec_min.png" alt="Security Miniature" class="w-full h-full object-cover">
                         </div>
                         <i data-lucide="arrow-up-right"
                             class="text-white/20 w-5 h-5 group-hover:text-cta transition-colors"></i>
@@ -255,8 +460,8 @@
                 <div class="reveal bento-card p-8 group">
                     <div class="flex justify-between items-start mb-10">
                         <div
-                            class="p-3 bg-cta/10 rounded-2xl text-cta group-hover:bg-cta group-hover:text-white transition-colors">
-                            <i data-lucide="copy" class="w-6 h-6"></i>
+                            class="w-12 h-12 rounded-2xl overflow-hidden border border-cta/30 group-hover:border-cta transition-colors shadow-[0_0_15px_rgba(255,176,103,0.2)]">
+                            <img src="pay_min.png" alt="Pay System Miniature" class="w-full h-full object-cover">
                         </div>
                         <i data-lucide="arrow-up-right"
                             class="text-white/20 w-5 h-5 group-hover:text-cta transition-colors"></i>
@@ -269,8 +474,8 @@
                 <div class="reveal md:col-span-2 bento-card p-8 flex items-center justify-between group">
                     <div class="flex items-center gap-6">
                         <div class="w-16 h-16 rounded-full border-2 border-white/5 overflow-hidden flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=200"
-                                alt="Avatar" class="w-full h-full object-cover">
+                            <img src="dor.png"
+                                alt="Definition of Ready" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="text-xl font-bold tracking-tight">/DoR : DEFINITION OF READY</h4>
@@ -283,6 +488,330 @@
                     </button>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- La Squad Section -->
+        <section id="la-squad" class="max-w-7xl mx-auto py-32 border-t border-white/5">
+            <div class="reveal text-center mb-20">
+                <span class="px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4 inline-block">Élite Artificielle</span>
+                <h2 class="text-5xl font-black mb-6 tracking-tight">LA NOVA SQUAD</h2>
+                <p class="text-white/40 text-lg max-w-2xl mx-auto">16 Agents spécialisés. Une seule conscience collective pour livrer l'excellence technique et fonctionnelle.</p>
+            </div>
+
+            <!-- 1. L'État-Major -->
+            <div class="mb-24">
+                <h3 class="reveal text-2xl font-black mb-8 uppercase text-cta text-center tracking-widest">
+                    <i data-lucide="shield" class="inline-block w-6 h-6 mr-2 mb-1"></i> L'État-Major
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="reveal bento-card p-8 border-t-4 border-t-cta group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-cta/10 rounded-xl text-cta group-hover:bg-cta group-hover:text-white transition-all duration-300">
+                                <i data-lucide="crown" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-black uppercase tracking-tight">NOVA-LEAD</h4>
+                                <p class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Orchestrateur & Delivery</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-3"><span class="font-bold text-white">Technique :</span> Decision Log Manager, Gatekeeper (Go/No-Go), Résolveur de conflits multi-agents.</p>
+                        <p class="text-white/40 text-sm italic"><span class="text-white/50 font-medium">Vulgarisé :</span> Le DSI et Chef de Projet ultimes. Il arbitre, prend les décisions finales et garantit que rien de non-conforme ne passe en production.</p>
+                    </div>
+
+                    <div class="reveal bento-card p-8 border-t-4 border-t-primary group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                                <i data-lucide="network" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-black uppercase tracking-tight">NOVA-PROMPT</h4>
+                                <p class="text-white/30 text-[10px] font-bold uppercase tracking-widest">Routeur & Dispatcher</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-3"><span class="font-bold text-white">Technique :</span> Découpage asynchrone, génération de briefs contextuels isolés pour les rôles spécialisés.</p>
+                        <p class="text-white/40 text-sm italic"><span class="text-white/50 font-medium">Vulgarisé :</span> Le Chef d'Orchestre silencieux. Il prend vos idées floues et les transforme en instructions millimétrées pour chaque expert de l'équipe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. La Vision -->
+            <div class="mb-24">
+                <h3 class="reveal text-2xl font-black mb-8 uppercase text-purple-400 text-center tracking-widest">
+                    <i data-lucide="eye" class="inline-block w-6 h-6 mr-2 mb-1"></i> La Vision & Produit
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="reveal bento-card p-6 flex flex-col group">
+                        <i data-lucide="target" class="w-8 h-8 text-white/30 group-hover:text-purple-400 transition-colors duration-300 mb-4 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-lg mb-1">NOVA-PM</h5>
+                        <p class="text-white/30 text-[10px] uppercase tracking-widest mb-3">Product Manager</p>
+                        <p class="text-white/50 text-xs mt-auto">Gère le périmètre (scope), rédige les User Stories et empêche tout débordement du MVP.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col group">
+                        <i data-lucide="layout-template" class="w-8 h-8 text-white/30 group-hover:text-purple-400 transition-colors duration-300 mb-4 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-lg mb-1">NOVA-UX</h5>
+                        <p class="text-white/30 text-[10px] uppercase tracking-widest mb-3">User Experience</p>
+                        <p class="text-white/50 text-xs mt-auto">Conçoit les parcours utilisateurs, l'accessibilité et valide les Wireframes textuels avant le code.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col group">
+                        <i data-lucide="lightbulb" class="w-8 h-8 text-white/30 group-hover:text-purple-400 transition-colors duration-300 mb-4 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-lg mb-1">NOVA-IDEA</h5>
+                        <p class="text-white/30 text-[10px] uppercase tracking-widest mb-3">Brainstorming</p>
+                        <p class="text-white/50 text-xs mt-auto">Génère des options produit (Bénéfice/Effort). Bridé contre les dark patterns et le sur-tracking.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col group">
+                        <i data-lucide="compass" class="w-8 h-8 text-white/30 group-hover:text-purple-400 transition-colors duration-300 mb-4 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-lg mb-1">NOVA-DOM</h5>
+                        <p class="text-white/30 text-[10px] uppercase tracking-widest mb-3">Expert Métier</p>
+                        <p class="text-white/50 text-xs mt-auto">Le Caméléon. Apporte le vocabulaire et les processus métiers réels (Santé, Finance, E-commerce...).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. La Forge -->
+            <div class="mb-24">
+                <h3 class="reveal text-2xl font-black mb-8 uppercase text-blue-400 text-center tracking-widest">
+                    <i data-lucide="hammer" class="inline-block w-6 h-6 mr-2 mb-1"></i> La Forge (Ingénierie)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group">
+                        <i data-lucide="blocks" class="w-8 h-8 text-white/30 group-hover:text-blue-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-ARCH</h5>
+                        <p class="text-white/50 text-[10px]">Architecture système, NFR, choix de stack.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group">
+                        <i data-lucide="monitor-smartphone" class="w-8 h-8 text-white/30 group-hover:text-blue-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-FE</h5>
+                        <p class="text-white/50 text-[10px]">Code Frontend, UI réactive, performances Web.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group">
+                        <i data-lucide="server" class="w-8 h-8 text-white/30 group-hover:text-blue-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-BE</h5>
+                        <p class="text-white/50 text-[10px]">APIs, DB, Ledger immuable, Webhooks Paiement.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-white/30 group-hover:text-blue-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-MOB</h5>
+                        <p class="text-white/50 text-[10px]">Apps natives, Offline Sync, validation Stores.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group">
+                        <i data-lucide="terminal-square" class="w-8 h-8 text-white/30 group-hover:text-blue-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-DEVOPS</h5>
+                        <p class="text-white/50 text-[10px]">CI/CD, Infra as Code, Observabilité (Logs).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Les Gardiens -->
+            <div>
+                <h3 class="reveal text-2xl font-black mb-8 uppercase text-red-400 text-center tracking-widest">
+                    <i data-lucide="shield-alert" class="inline-block w-6 h-6 mr-2 mb-1"></i> Les Gardiens
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group border-t-2 border-t-red-500/30">
+                        <i data-lucide="microscope" class="w-8 h-8 text-red-400/50 group-hover:text-red-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-GENIUS</h5>
+                        <p class="text-white/50 text-[10px]">Critique acerbe. Casse l'over-engineering et traque les angles morts.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group border-t-2 border-t-red-500/30">
+                        <i data-lucide="lock" class="w-8 h-8 text-red-400/50 group-hover:text-red-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-SEC</h5>
+                        <p class="text-white/50 text-[10px]">OWASP Top 10, Threat Model, contrôle d'accès anti-IDOR.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group border-t-2 border-t-red-500/30">
+                        <i data-lucide="test-tube-2" class="w-8 h-8 text-red-400/50 group-hover:text-red-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-QA</h5>
+                        <p class="text-white/50 text-[10px]">Stratégie de tests, E2E, matrices de non-régression.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group border-t-2 border-t-red-500/30">
+                        <i data-lucide="scale" class="w-8 h-8 text-red-400/50 group-hover:text-red-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-DPO</h5>
+                        <p class="text-white/50 text-[10px]">Minimisation RGPD, base légale, DSAR, droits à l'oubli.</p>
+                    </div>
+                    <div class="reveal bento-card p-6 flex flex-col items-center text-center group border-t-2 border-t-red-500/30">
+                        <i data-lucide="gavel" class="w-8 h-8 text-red-400/50 group-hover:text-red-400 transition-colors duration-300 mb-3 block"></i>
+                        <h5 class="font-black uppercase tracking-tight text-sm mb-1">NOVA-LEGAL</h5>
+                        <p class="text-white/50 text-[10px]">CGV/CGU, Modération UGC, Conformité sectorielle absolue.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Synergie Section -->
+        <section class="max-w-7xl mx-auto py-20">
+            <div class="reveal p-1 bg-gradient-to-r from-primary/30 via-cta/30 to-purple-500/30 rounded-[30px] p-[1px]">
+                <div class="bg-dark-card rounded-[29px] p-10 md:p-16 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay"></div>
+                    <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-black tracking-tight mb-4">SYNERGIE MULTI-AGENTS</h3>
+                            <p class="text-white/60 mb-6 leading-relaxed">
+                                Les cerveaux humains saturent. Les assistants IA simples hallucinent. 
+                                La NOVA SQUAD opère selon un paradigme de <strong class="text-white">Séparation des Préoccupations Stricte</strong>.
+                            </p>
+                            <ul class="space-y-4 text-sm text-white/50">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span><strong>Zéro Bruit :</strong> En "Mode Adaptatif", seuls les experts requis (ex: PM, UX, BE) s'expriment.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span><strong>Exécution Parallèle :</strong> NOVA-PROMPT rédige les macros, les agents travaillent simultanément sur leur plan.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span><strong>Synthèse Delta :</strong> NOVA-LEAD compile le tout en un "Decision Log" minimaliste. Pas de spaghettis de texte. Actionnable immédiatement.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="relative flex justify-center items-center">
+                            <!-- Abstract Diagram -->
+                            <div class="w-64 h-64 border border-white/10 rounded-full flex items-center justify-center relative animate-[spin_30s_linear_infinite]">
+                                <div class="absolute inset-0 border border-primary/20 rounded-full animate-[spin_20s_linear_infinite_reverse] scale-75"></div>
+                                <div class="absolute inset-0 border border-cta/20 rounded-full animate-[spin_10s_linear_infinite] scale-50"></div>
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.8)] animate-pulse">
+                                    <i data-lucide="brain" class="w-8 h-8 text-black"></i>
+                                </div>
+                                <!-- Satellites -->
+                                <div class="absolute top-0 w-8 h-8 bg-cta rounded-full -mt-4 flex items-center justify-center"><i data-lucide="shield" class="w-4 h-4 text-white"></i></div>
+                                <div class="absolute bottom-0 w-8 h-8 bg-primary rounded-full -mb-4 flex items-center justify-center"><i data-lucide="code" class="w-4 h-4 text-white"></i></div>
+                                <div class="absolute left-0 w-8 h-8 bg-purple-500 rounded-full -ml-4 flex items-center justify-center"><i data-lucide="eye" class="w-4 h-4 text-white"></i></div>
+                                <div class="absolute right-0 w-8 h-8 bg-green-500 rounded-full -mr-4 flex items-center justify-center"><i data-lucide="scale" class="w-4 h-4 text-white"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Le Protocole Section -->
+        <section id="le-protocole" class="max-w-4xl mx-auto py-32 border-t border-white/5 relative">
+            <div class="reveal text-center mb-16 relative z-10">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <i data-lucide="git-merge" class="text-primary w-6 h-6"></i>
+                    <span class="px-4 py-2 rounded-full bg-cta/10 text-cta text-xs font-bold uppercase tracking-widest inline-block">Méthodologie</span>
+                </div>
+                <h2 class="text-5xl font-black mb-6 tracking-tight">LE PROTOCOLE</h2>
+                <p class="text-white/40 text-lg max-w-2xl mx-auto">Zéro scope creep. Zéro concession sur la conformité. Le code n'est généré qu'une fois les fondations en ciment armé.</p>
+            </div>
+
+            <div class="relative space-y-12 pl-10 border-l-2 border-primary/20 ml-2 md:mx-auto md:ml-10">
+                <!-- Step 1 -->
+                <div class="reveal relative">
+                    <div class="absolute -left-14 top-0 w-8 h-8 rounded-full bg-dark border-2 border-primary flex items-center justify-center shadow-[0_0_10px_rgba(244,140,37,0.5)]">
+                        <i data-lucide="log-in" class="w-4 h-4 text-primary"></i>
+                    </div>
+                    <div class="bg-dark-card/60 p-6 rounded-xl border border-white/5 backdrop-blur-sm">
+                        <h4 class="text-primary font-bold text-sm tracking-widest uppercase mb-1">01 // Intake & Snapshot</h4>
+                        <p class="text-white font-semibold text-2xl mb-2">Verrouiller le Périmètre</p>
+                        <p class="text-white/50 text-sm leading-relaxed">NOVA-LEAD analyse votre concept. Nous figeons le "Spec Snapshot" (stack, paiements, RGPD) et créons le backlog par priorités (P0, P1). Tout ce qui est superflu est décalé.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="reveal relative">
+                    <div class="absolute -left-14 top-0 w-8 h-8 rounded-full bg-dark border-2 border-primary flex items-center justify-center shadow-[0_0_10px_rgba(244,140,37,0.5)]">
+                        <i data-lucide="split" class="w-4 h-4 text-primary"></i>
+                    </div>
+                    <div class="bg-dark-card/60 p-6 rounded-xl border border-white/5 backdrop-blur-sm">
+                        <h4 class="text-primary font-bold text-sm tracking-widest uppercase mb-1">02 // Dispatch en Escouade</h4>
+                        <p class="text-white font-semibold text-2xl mb-2">Stratégie Multi-Agents</p>
+                        <p class="text-white/50 text-sm leading-relaxed">NOVA-PROMPT génère des "Briefs" isolés pour chaque agent expert (UX, SEC, DPO...). Chacun prépare son plan d'attaque dans son périmètre strict. Le mode parallèle est activé.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="reveal relative">
+                    <div class="absolute -left-14 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(244,140,37,0.8)]">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-dark fill-dark"></i>
+                    </div>
+                    <div class="bg-dark-card/60 p-6 rounded-xl border border-primary/30 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(244,140,37,0.05)]">
+                        <h4 class="text-primary font-bold text-sm tracking-widest uppercase mb-1">03 // No Code Allowed</h4>
+                        <p class="text-white font-semibold text-2xl mb-2">Validation Impitoyable</p>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Il est formellement interdit de coder avant que la "Gate DoR" ne soit déclenchée. NOVA-SEC vérifie l'auth, NOVA-DPO valide la minimisation des données. Si "KO", retour case départ.</p>
+                        <ul class="text-white/60 text-xs text-left space-y-2">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-400 block"></i> Story acceptée & UX validée</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-primary block"></i> API Contract défini</li>
+                            <li class="flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 block"></i> Security & DPO Check (Bloquant)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulaire de Candidature (Entonnoir) -->
+        <section id="postuler" class="max-w-4xl mx-auto py-32 border-t border-white/5 relative">
+            <div class="reveal text-center mb-16">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <i data-lucide="mail-check" class="text-cta w-6 h-6"></i>
+                    <span class="px-4 py-2 rounded-full bg-cta/10 text-cta text-xs font-bold uppercase tracking-widest inline-block">SÉLECTION SUR DOSSIER</span>
+                </div>
+                <h2 class="text-5xl font-black mb-6 tracking-tight">POSTULER POUR L'ACCÈS</h2>
+                <p class="text-white/40 text-lg max-w-2xl mx-auto">
+                    Nova Squad n'est pas un abonnement SaaS en libre-service. Pour garantir des résultats exceptionnels, nous limitons l'accès aux fondateurs et projets les plus ambitieux. Remplissez ce formulaire pour soumettre votre candidature.
+                </p>
+            </div>
+
+            <div class="reveal bento-card p-10 md:p-14 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50 pointer-events-none"></div>
+                <form class="relative z-10 space-y-8" action="https://formsubmit.co/novaskilltech@gmail.com" method="POST">
+                    
+                    <!-- Configuration FormSubmit -->
+                    <input type="hidden" name="_subject" value="Nouvelle Candidature Nova Squad !">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold uppercase tracking-widest text-white/60">Nom & Prénom</label>
+                            <input type="text" name="nom" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 transition-colors" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold uppercase tracking-widest text-white/60">Email Professionnel</label>
+                            <input type="email" name="email" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 transition-colors" placeholder="john@startup.com">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <label class="text-xs font-bold uppercase tracking-widest text-white/60">Profil LinkedIn ou URL de l'entreprise</label>
+                        <input type="url" name="profil_url" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 transition-colors" placeholder="https://linkedin.com/in/johndoe">
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-xs font-bold uppercase tracking-widest text-white/60">Le Projet SaaS (En quelques mots)</label>
+                        <textarea name="projet" required rows="4" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 transition-colors" placeholder="Quel est le problème que vous résolvez ? Quelle est votre pile technologique (si connue) ?"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold uppercase tracking-widest text-white/60">Budget Estimé</label>
+                            <div class="relative">
+                                <select name="budget" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white appearance-none focus:outline-none focus:border-primary/50 transition-colors cursor-pointer">
+                                    <option value="bootstrap">Bootstrap / -5K€</option>
+                                    <option value="seed">Seed / 5K€ - 20K€</option>
+                                    <option value="scale">Scale / +20K€</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold uppercase tracking-widest text-white/60">Disponibilité</label>
+                            <div class="relative">
+                                <select name="disponibilite" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white appearance-none focus:outline-none focus:border-primary/50 transition-colors cursor-pointer">
+                                    <option value="immediat">Immédiate</option>
+                                    <option value="1mois">Dans 1 mois</option>
+                                    <option value="plus">Phase de réflexion</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full mt-6 flex items-center justify-center gap-3 bg-primary text-dark font-black text-xl tracking-tighter uppercase py-5 rounded-xl hover:bg-cta hover:scale-[1.02] shadow-[0_15px_30px_-10px_rgba(244,140,37,0.3)] transition-all">
+                        SOUMETTRE LE DOSSIER <i data-lucide="send" class="w-6 h-6"></i>
+                    </button>
+                    <p class="text-center text-white/30 text-xs mt-4">Vos données sont protégées (Protocole NOVA-DPO). Réponse sous 48h.</p>
+                </form>
             </div>
         </section>
 
@@ -343,27 +872,98 @@
                 </div>
             </div>
 
-            <div
-                class="reveal mt-20 p-10 bento-card border-primary/20 bg-primary/5 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div>
-                    <h4 class="text-2xl font-black mb-2 uppercase tracking-tight italic">Mode Comité</h4>
-                    <p class="text-white/40 text-sm">Mobilisez toute l'escouade (Lead, Tech, UX, Legal) pour une vision
-                        à 360°.</p>
+            <div class="reveal mt-20 relative group">
+                <div class="rounded-2xl bg-gradient-to-b from-dark-card to-dark border border-primary/20 p-8 overflow-hidden relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <i data-lucide="cpu" class="w-32 h-32 text-primary rotate-12"></i>
+                    </div>
+                    <div class="relative z-10 text-center space-y-6 max-w-2xl mx-auto">
+                        <div class="space-y-2">
+                            <h3 class="text-white text-3xl font-black uppercase tracking-tighter italic">Mode Comité</h3>
+                            <p class="text-white/40 text-xs uppercase tracking-[0.2em] font-bold">Holographic Control Interface</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 border border-white/5 space-y-3 mb-6">
+                            <div class="flex justify-between items-center text-[10px] font-mono text-primary/80 uppercase">
+                                <span>Squad Status</span>
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 bg-primary rounded-full animate-ping"></span> Standby</span>
+                            </div>
+                            <div class="h-12 w-full flex items-end gap-1 px-1">
+                                <div class="flex-1 bg-primary/30 h-[20%] rounded-t-sm"></div>
+                                <div class="flex-1 bg-primary/30 h-[40%] rounded-t-sm"></div>
+                                <div class="flex-1 bg-primary h-[80%] rounded-t-sm"></div>
+                                <div class="flex-1 bg-primary/60 h-[50%] rounded-t-sm animate-pulse"></div>
+                                <div class="flex-1 bg-primary/40 h-[30%] rounded-t-sm animate-shimmer"></div>
+                                <div class="flex-1 bg-primary h-[90%] rounded-t-sm"></div>
+                                <div class="flex-1 bg-primary/70 h-[60%] rounded-t-sm"></div>
+                            </div>
+                        </div>
+                        <button id="btn-comite" class="group relative w-full overflow-hidden rounded-xl h-16 bg-primary text-dark text-lg font-black uppercase tracking-widest shadow-[0_10px_40px_rgba(244,140,37,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+                            <div class="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                            <span class="relative z-10 flex items-center justify-center gap-2">
+                                ACTIVER L'ESCOUADE
+                                <i data-lucide="zap" class="w-5 h-5 fill-dark"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <!-- Tech Grid Overlay -->
+                    <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: linear-gradient(#f48c25 1px, transparent 1px), linear-gradient(90deg, #f48c25 1px, transparent 1px); background-size: 20px 20px;"></div>
                 </div>
-                <button class="bg-primary text-white px-10 py-4 rounded-xl font-black hover:scale-105 transition-all">
-                    ACTIVER L'ESCOUADE
-                </button>
             </div>
         </section>
 
     </main>
+
+    <!-- Modal 3D Mode Comité -->
+    <div id="modal-comite" class="modal-3d-container">
+        <div class="modal-3d-overlay" id="modal-overlay"></div>
+        <div class="modal-3d-content relative z-10 flex flex-col">
+            <button id="close-modal" class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-20">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            
+            <div class="flex items-center gap-4 mb-8 relative z-10">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.6)] animate-pulse">
+                    <i data-lucide="zap" class="w-8 h-8 text-white fill-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-cta">MODE COMITÉ</h2>
+                    <p class="text-white/40 uppercase tracking-widest text-xs font-bold font-mono mt-1">Status: SYNCHRONIZING_16_NODES</p>
+                </div>
+            </div>
+            
+            <div class="relative z-10 space-y-6">
+                <p class="text-lg text-white/80 leading-relaxed">
+                    Le <strong class="text-white">Mode Comité</strong> est une directive système exceptionnelle (<code>/complet</code>, <code>/PARALLEL</code>). Il force la résolution simultanée par l'ensemble des 16 agents.
+                </p>
+                
+                <div class="bg-black/40 border border-white/5 rounded-xl p-6">
+                    <h4 class="font-bold text-white mb-3 uppercase tracking-widest text-sm flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-4 h-4 text-primary"></i> Processus d'Ignition
+                    </h4>
+                    <ol class="text-white/50 text-sm space-y-3 list-decimal list-inside marker:text-cta marker:font-black">
+                        <li><strong>Forçage Parallèle :</strong> NOVA-PROMPT ignore le routing sélectif et broadcast des instructions internes (micro-prompts) à <em>tous</em> les rôles simultanément.</li>
+                        <li><strong>Tempête Cognitive :</strong> UX, SEC, DPO et ARCH génèrent leurs analyses complètes dans un espace-temps cloisonné.</li>
+                        <li><strong>Dédoublonnage :</strong> NOVA-GENIUS passe la grille au laser pour tuer les idées redondantes.</li>
+                        <li><strong>Snapshot Ultime :</strong> NOVA-LEAD synthétise l'output colossal en 5 blocs actionnables (Specs, Backlog P0/P1, Risques, Gates).</li>
+                    </ol>
+                </div>
+                
+                <div class="flex items-center gap-3 text-red-400 text-xs font-bold uppercase tracking-widest bg-red-500/10 border border-red-500/20 p-4 rounded-lg">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                    <span>Avertissement : Ce mode consomme un haut de niveau de jetons (tokens). À réserver aux jalons majeurs de produit ou d'architecture.</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="py-20 border-t border-white/5 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
             <div class="md:col-span-4">
                 <div class="flex items-center gap-3 mb-8">
-                    <i data-lucide="zap" class="text-cta fill-cta w-6 h-6 animate-pulse"></i>
+                    <div class="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(244,140,37,0.4)] animate-pulse">
+                        <img src="logo.png" alt="Nova Squad Logo" class="w-full h-full object-cover">
+                    </div>
                     <span class="font-bold text-2xl tracking-tighter italic">NOVA SQUAD</span>
                 </div>
                 <p class="text-white/30 text-sm leading-relaxed max-w-xs">
@@ -375,6 +975,7 @@
                 <div class="space-y-4">
                     <h5 class="text-white text-xs font-black uppercase tracking-widest">Resources</h5>
                     <ul class="text-white/40 text-sm space-y-2">
+                        <li><a href="blog.html" class="hover:text-cta transition-colors text-primary font-bold">Blog: IA Multi-Agents & SaaS</a></li>
                         <li><a href="#" class="hover:text-cta transition-colors">Documentation</a></li>
                         <li><a href="#" class="hover:text-cta transition-colors">API Alpha</a></li>
                         <li><a href="#" class="hover:text-cta transition-colors">Guidelines</a></li>
@@ -395,7 +996,7 @@
                 SQUAD PROTOCOL v8.2 // SECURE CONNECTION ESTABLISHED
             </p>
             <p class="text-[11px] text-white/20">
-                © 2026 NOVA SQUAD PROMPTS. NO RIGHTS RESERVED. CODE IS FREEDOM.
+                © 2026 Novaskill Tech. NO RIGHTS RESERVED. CODE IS FREEDOM.
             </p>
         </div>
     </footer>
@@ -417,6 +1018,52 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Splash Screen Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('splash-screen').classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }, 2000);
+        });
+
+        // Mobile Menu Logic
+        const burgerBtn = document.getElementById('burger-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('overflow-hidden');
+        };
+
+        // 3D Modal Logic
+        const btnComite = document.getElementById('btn-comite');
+        const modalComite = document.getElementById('modal-comite');
+        const closeModal = document.getElementById('close-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+
+        const openModal3D = () => {
+            modalComite.classList.add('active');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        const closeModal3D = () => {
+            modalComite.classList.remove('active');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        btnComite.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal3D();
+        });
+
+        closeModal.addEventListener('click', closeModal3D);
+        modalOverlay.addEventListener('click', closeModal3D);
+
+        // Prevent scroll when splash is active
+        document.body.classList.add('overflow-hidden');
     </script>
 </body>
 
